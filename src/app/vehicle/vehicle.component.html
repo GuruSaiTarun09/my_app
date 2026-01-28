@@ -60,15 +60,17 @@
             <td>{{vehicle.type}}</td>
             <td>{{vehicle.fuel}}</td>
             <td>{{vehicle.color}}</td>
-            <td>{{vehicle.cost}}</td>
+            <td>{{vehicle.cost |price}}</td>
             <td>{{vehicle.tyres}}</td>
             <td>
                 <img src="{{vehicle.image}}" alt="" height="100px" width="100px">
             </td>
             <!-- delete -->
             <td><button class="btn btn-info" routerLink="/dashboard/vechicle-details/{{vehicle.id}}">view</button>
+                <div *ngIf="role==='admin'">
                 <button class="btn btn-warning" routerLink="/dashboard/edit-vehicle/{{vehicle.id}}">edit</button>
                 <button class="btn btn-danger" (click)="deleteVehicle(vehicle.id)">delete</button>
+                </div>
             </td>
 
         </tr>

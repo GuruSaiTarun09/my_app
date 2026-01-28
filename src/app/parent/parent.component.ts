@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-parent',
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
+  //encapsulation: viewEncapsulation.None //Emulated Shadown none
 })
 export class ParentComponent {
 

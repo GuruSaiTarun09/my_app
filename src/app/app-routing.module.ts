@@ -27,11 +27,20 @@ import { AuthGuard } from './auth.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { ParentComponent } from './parent/parent.component';
+import { FlipkartComponent } from './flipkart/flipkart.component';
+import { CartComponent } from './cart/cart.component';
+import { NavComponent } from './nav/nav.component';
+import { ItemsComponent } from './items/items.component';
+import { NotifyGuard } from './notify.guard';
+import { AdminGuard } from './admin.guard';
+import { AboutCeoComponent } from './aboutus/about-ceo/about-ceo.component';
+import { AboutCompanyComponent } from './aboutus/about-company/about-company.component';
+import { OptimizationComponent } from './optimization/optimization.component';
+import { HooksComponent } from './hooks/hooks.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  {path: 'dashboard',
-    component: DashboardComponent,canActivate:[AuthGuard],
+  {path: 'dashboard',component: DashboardComponent,canActivate:[AuthGuard],
     children: [
       { path: 'Home', component: HomeComponent },
       { path: 'wellcome', component: WellcomeComponent },
@@ -50,13 +59,21 @@ const routes: Routes = [
       { path: 'gmail', component: GmailComponent },
       { path: 'weather', component: WeatherComponent },
       { path: 'studentdetails', component: StudentdetailsComponent },
-      { path:'create-vehicle',component:CreateVechicleComponent},
+      { path:'create-vehicle',component:CreateVechicleComponent,canDeactivate:[NotifyGuard]},
       { path:'adddeatails',component:AdddeatailsComponent},
       { path:'vechicle-details/:id',component:VechicleDetailsComponent},
-      { path:'edit-vehicle/:id',component:VechicleDetailsComponent},
-      { path:'create-user',component:CreateUserComponent},
+      { path:'edit-vehicle/:id',component:VechicleDetailsComponent,canActivate:[AdminGuard]},
+      { path:'create-user',component:CreateUserComponent,canDeactivate:[NotifyGuard]},
       {path:'company-details',component:CompanyDetailsComponent},
-      {path:'parent',component:ParentComponent}
+      {path:'parent',component:ParentComponent},
+      {path:'flipkart',component:FlipkartComponent},
+      {path:'cart',component:CartComponent},
+      {path:'nav',component:NavComponent},
+      {path:'items',component:ItemsComponent},
+      {path:'about-ceo',component:AboutCeoComponent},
+      {path:'about-company',component:AboutCompanyComponent},
+      {path:'optimization',component:OptimizationComponent},
+      {path:'hooks',component:HooksComponent}
     ]
   },
   { path: '', component: LoginComponent },

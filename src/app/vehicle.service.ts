@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Vehicle } from './vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class VehicleService {
   constructor(private httpClient:HttpClient) { }
     // get
     getVehicles(){
-      return this.httpClient.get("https://6128991386a213001729f9df.mockapi.io/test/v1/jurisdiction");
+      return this.httpClient.get<Vehicle[]>("https://6128991386a213001729f9df.mockapi.io/test/v1/jurisdiction");
     }
     // filter
      filterVehicles(term:string){
@@ -35,7 +36,7 @@ export class VehicleService {
     getVehicle(id:string){
       return this.httpClient.get("https://6128991386a213001729f9df.mockapi.io/test/v1/jurisdiction/"+id);
     }
-    //edit
+    // edit
     // getVehicle(id:string){
     //   return this.httpClient.get("https://6128991386a213001729f9df.mockapi.io/test/v1/jurisdiction/"+id);
     // }

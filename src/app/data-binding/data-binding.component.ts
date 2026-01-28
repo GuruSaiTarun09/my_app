@@ -9,6 +9,8 @@ export class DataBindingComponent {
       age:number=20;
       name:string="guru"
 
+      cricket:string="viratkaohli"
+      inputType:string="radio"
       message:string="Hi"
 
       submit(){

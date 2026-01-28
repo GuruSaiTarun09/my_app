@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { VehicleService } from '../vehicle.service';
+import { Vehicle } from '../vehicle';
 
 @Component({
   selector: 'app-vehicle',
@@ -9,11 +10,15 @@ import { VehicleService } from '../vehicle.service';
 })
 export class VehicleComponent {
 
+age:number[] =[];
+role:string=String(localStorage.getItem('role'));
+
+
   // get
-  vehicles: any = [];
+  vehicles: Vehicle[] = [];
   constructor(private vehicleService: VehicleService) {
     vehicleService.getVehicles().subscribe(
-      (data: any) => {
+      (data: Vehicle[]) => {
         this.vehicles = data;
       },
       (err: any) => {

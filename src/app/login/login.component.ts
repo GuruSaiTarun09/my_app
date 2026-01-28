@@ -26,7 +26,11 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe(
       (data: any) => {
         alert("Login success");
-        localStorage.setItem("token", data.accesstoken);
+        localStorage.setItem("token", data.accessToken);
+
+        // localStorage.setItem("token",data.rolee);
+        localStorage.setItem("role","admin");
+        //go to daashboard
         this.router.navigateByUrl("/dashboard");
       },
       (err: any) => {

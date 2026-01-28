@@ -20,7 +20,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { MailComponent } from './mail/mail.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AccountComponent } from './account/account.component';
 import { GmailComponent } from './gmail/gmail.component';
 import { WeatherComponent } from './weather/weather.component';
@@ -36,6 +36,20 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { HighlightComponent } from './highlight/highlight.component';
+import { FlipkartComponent } from './flipkart/flipkart.component';
+import { CartComponent } from './cart/cart.component';
+import { NavComponent } from './nav/nav.component';
+import { ItemsComponent } from './items/items.component';
+import { HighlightDirective } from './highlight.directive';
+import { PricePipe } from './price.pipe';
+import { TokenInterceptor } from './token.interceptor';
+import { GlobalErrorInterceptor } from './global-error.interceptor';
+import { AboutusModule } from './aboutus/aboutus.module';
+import { UpiComponent } from './upi/upi.component';
+import { CardComponent } from './card/card.component';
+import { OptimizationComponent } from './optimization/optimization.component';
+import { HooksComponent } from './hooks/hooks.component';
+import { LifecyclesComponent } from './lifecycles/lifecycles.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +82,18 @@ import { HighlightComponent } from './highlight/highlight.component';
     ParentComponent,
     ChildComponent,
     TextareaComponent,
-    HighlightComponent
+    HighlightComponent,
+    FlipkartComponent,
+    CartComponent,
+    NavComponent,
+    ItemsComponent,
+    HighlightDirective,
+    PricePipe,
+    UpiComponent,
+    CardComponent,
+    OptimizationComponent,
+    HooksComponent,
+    LifecyclesComponent
   ],
   imports: [
     BrowserModule,
@@ -76,16 +101,30 @@ import { HighlightComponent } from './highlight/highlight.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AboutusModule
 
-    // ✅ FIXED: Add RouterModule here
-    RouterModule.forRoot([
-      { path: '', component: LoginComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: '**', component: PageNotFoundComponent } // optional
-    ])
+  //   // ✅ FIXED: Add RouterModule here
+  //   RouterModule.forRoot([
+  //     { path: '', component: LoginComponent },
+  //     { path: 'login', component: LoginComponent },
+  //     { path: 'dashboard', component: DashboardComponent },
+  //     { path: '**', component: PageNotFoundComponent } // optional
+  //   ])
+  // 
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptor,
+      multi:true
+    },
+        
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:GlobalErrorInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
