@@ -1,0 +1,126 @@
+<h1>create user</h1>
+<form action="" [formGroup]="userForm" (ngSubmit)="submit()">
+    <label for="">name:</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+        <p class="error" *ngIf="userForm.get('name')?.hasError('required')">Name is required</p>
+        <p class="error" *ngIf="userForm.get('name')?.hasError('minlength')">minimum 3 chars required</p>
+        <p class="error" *ngIf="userForm.get('name')?.hasError('maxlength')">maxlength 10 chars allowed</p>
+        <p class="error" *ngIf="userForm.get('name')?.hasError('pattern')">capitalized</p>
+
+    </div>
+    <!-- <p>touched{{userForm.get('name')?.touched}}</p>
+    <p>untouched{{userForm.get('name')?.untouched}}</p>
+
+    <p>dirty{{userForm.get('name')?.dirty}}</p>
+    <p>pristine{{userForm.get('name')?.pristine}}</p>
+
+    <p>valid{{userForm.get('name')?.valid}}</p>
+    <p>invalid{{userForm.get('name:')?.invalid}}</p>
+
+    <p>value{{userForm.get('name')?.value}}</p>
+    <p>errors{{userForm.get('name')?.errors | json}}</p>
+
+    <p>required{{userForm.get('name')?.hasError('required')}}</p>
+    <p>min:{{userForm.get('name')?.hasError('minlength')}}</p> -->
+    <br>
+    <label for="">Age</label>
+    <input type="text" formControlName="age">
+    <div *ngIf="userForm.get('age')?.touched && userForm.get('age')?.invalid">
+        <p class="error" *ngIf="userForm.get('age')?.hasError('required')">Age is required</p>
+        <p class="error" *ngIf="userForm.get('age')?.hasError('minlength')">minimum 0 years</p>
+        <p class="error" *ngIf="userForm.get('age')?.hasError('maxlength')">maxlength 100 years</p>
+
+    </div>
+    <br>
+    <label for="">email</label>
+    <input type="text" formControlName="email">
+    <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+        <p class="error" *ngIf="userForm.get('email')?.hasError('required')">Email is required</p>
+        <p class="error" *ngIf="userForm.get('email')?.hasError('email')">@ is requried</p>
+        <p class="error" *ngIf="userForm.get('email')?.hasError('capgeminiEmail')">@capgemini.com</p>
+    </div>
+    <br>
+    <label for="">password</label>
+    <input type="text" formControlName="password">
+    <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid">
+        <p class="error" *ngIf="userForm.get('password')?.hasError('required')">password is required</p>
+        <p class="error" *ngIf="userForm.get('password')?.hasError('pattern')">8 charaters capitalized and symbol</p>
+
+    </div>
+    <br>
+    <div formGroupName="address">
+        <label for="">City:</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="userForm.get('address')?.get('city')?.touched && userForm.get('address')?.get('city')?.invalid">
+            <p class="error" *ngIf="userForm.get('address')?.get('city')?.hasError('required')">city is required</p>
+            <p class="error" *ngIf="userForm.get('address')?.get('city')?.hasError('minlength')">min 3 charecters</p>
+        </div>
+        <br>
+        <label for="">pin:</label>
+        <input type="number" formControlName="pin">
+        <div *ngIf="userForm.get('address')?.get('pin')?.touched && userForm.get('address')?.get('pin')?.invalid">
+            <p class="error" *ngIf="userForm.get('address')?.get('pin')?.hasError('required')">pin is required</p>
+            <p class="error" *ngIf="userForm.get('address')?.get('pin')?.hasError('min')">min 6 digits is requried</p>
+            <p class="error" *ngIf="userForm.get('address')?.get('pin')?.hasError('max')">max 6 digits is requried</p>
+        </div>
+        <br>
+    </div>
+    <button (click)="addCard()">add card</button>
+    <br>
+    <div formArrayName="cards">
+        <div *ngFor="let card of cardsFormArray.controls; let i = index">
+            <div formGroupName="{{i}}">
+                <h5>Card{{i+1}}</h5>
+                <label for="">number:</label>
+                <input type="text" formControlName="number">
+                <br>
+                <label for="">expiry:</label>
+                <input type="text" formControlName="expiry">
+                <br>
+                <label for="">cvv:</label>
+                <input type="text" formControlName="cvv">
+                <div
+                    *ngIf="cardsFormArray.controls[i]?.get('cvv')?.touched && cardsFormArray.controls[i]?.get('cvv')?.invalid">
+                    <p class="error" *ngIf="cardsFormArray.controls[i]?.get('cvv')?.hasError('required')">cvv is
+                        required </p>
+                    <p class="error" *ngIf="cardsFormArray.controls[i]?.get('cvv')?.hasError('min')">min 3 digits
+                        isrequried</p>
+                    <p class="error" *ngIf="cardsFormArray.controls[i]?.get('cvv')?.hasError('max')">max 3 digits
+                        isrequried</p>
+                </div>
+                <br>
+                <button (click)="delete(i)">delete</button>
+            </div>
+        </div>
+    </div>
+
+    <label for="">type</label>
+    <input type="radio" formControlName="type" formControlName="type" value="dayscholor">
+    <label for="">Day scholor</label>
+    <input type="radio" formControlName="type" formControlName="type" value="residential">
+    <label for="">residential</label>
+    <br>
+    <div *ngIf="userForm.get('type')?.value === 'dayscholor'">
+        <label for="">Busfee:</label>
+        <input type="number" formControlName="Busfee">
+        <div *ngIf="userForm.get('Busfee')?.touched && userForm.get('Busfee')?.invalid">
+            <p class="error" *ngIf="userForm.get('Busfee')?.hasError('required')">Busfee is required</p>
+            <p class="error" *ngIf="userForm.get('Busfee')?.hasError('min')">minimum 100 rupees</p>
+        </div>
+        <br>
+    </div>
+    <div *ngIf="userForm.get('type')?.value === 'residential'">
+        <label for="">Hostel fee:</label>
+        <input type="text" formControlName="hostelfee">
+        <div *ngIf="userForm.get('hostelfee')?.touched && userForm.get('hostelfee')?.invalid">
+            <p class="error" *ngIf="userForm.get('hostelfee')?.hasError('required')">hostelfee is required</p>
+            <p class="error" *ngIf="userForm.get('hostelfee')?.hasError('min')">minimum 100 rupees</p>
+        </div>
+        <br>
+    </div>
+    <input type="submit">
+</form>
+<pre>
+    {{userForm.value|json}}
+</pre>

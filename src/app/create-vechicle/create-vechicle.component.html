@@ -1,0 +1,33 @@
+<h1>{{ id ? 'edit-vehicle': 'Create vehicle'}}</h1>
+<form action="" [formGroup]="vechicleForm" (ngSubmit)="submit()">
+'    <label for="">vechicle</label>
+'    <input type="text" formControlName="Vehicle">
+    <br><br>
+    <label for="">manufacturer</label>
+    <input type="text" formControlName="manufacturer">
+    <br><br>
+    <label for="">model</label>
+    <input type="text" formControlName="model">
+    <br><br>
+    <label for="">Type</label>
+    <input type="text" formControlName="type">
+    <br><br>
+    <label for="">Fuel</label>
+    <input type="text" formControlName="fuel">
+    <br><br>
+    <label for="">Color</label>
+    <input type="text" formControlName="color">
+    <!-- [(ngModel)]="newVehicle.color -->
+    <br><br>
+    <label for="">image</label>
+    <input type="text" formControlName="image">
+    <br><br>
+    <label for="">cost</label>
+    <input type="text" formControlName="cost">
+    <br><br>
+    <label for="">Typres</label>
+    <input type="text" formControlName="tyres">
+    <br><br>
+
+    <input type="submit">
+</form>

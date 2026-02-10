@@ -1,0 +1,34 @@
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-light">
+  <div class="row w-100">
+    <div class="col-md-6 col-lg-4 mx-auto">
+      <div class="card shadow-lg border-0 rounded-4 p-4 text-center">
+        <h3 class="text-primary fw-bold mb-3">Square Calculator</h3>
+        <p class="text-muted mb-4">
+          Enter the side length to calculate Area and Perimeter
+        </p>
+
+        <div class="mb-3">
+          <label for="side" class="form-label fw-semibold">Side (cm)</label>
+          <input
+            type="number"
+            id="side"
+            [(ngModel)]="num1"
+            class="form-control text-center square-input mx-auto"
+            placeholder="Enter side length"
+          />
+        </div>
+
+        <div class="d-flex flex-column align-items-center">
+          <button class="btn btn-success btn-calc" (click)="area()">Find Area</button>
+          <button class="btn btn-primary btn-calc" (click)="perimeter()">Find Perimeter</button>
+          <button class="btn btn-danger btn-calc" >Reset</button>
+        </div>
+
+        <div class="result-box mt-4 p-3 rounded">
+          <p *ngIf="result">🟩 Area: <strong>{{ result }}</strong></p>
+          <p *ngIf="result1">🟦 Perimeter: <strong>{{ result1 }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

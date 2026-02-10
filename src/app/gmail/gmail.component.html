@@ -1,0 +1,6 @@
+<div class="parent" *ngFor="let gmail of gmails">
+    <input type="checkbox">
+    <h3>{{gmail.userId}}</h3>
+    <h3 [ngClass]="{'visited':gmail.completed==true,'not-visited':gmail.completed==false}">{{gmail.title}}</h3>
+
+</div>

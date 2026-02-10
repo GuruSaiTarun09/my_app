@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow p-4 text-center" style="width: 400px;">
+    <h3 class="mb-3 text-primary">🔵 Circle Calculator</h3>
+    <p class="text-muted mb-4">Enter the radius to calculate Area and Circumference</p>
+
+    <!-- Input field -->
+    <div class="mb-3">
+      <label for="radius" class="form-label fw-semibold">Radius (cm)</label>
+      <input type="number" id="radius"  class="form-control text-center" [(ngModel)]="num1" placeholder="Enter radius">
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex flex-column align-items-center">
+      <button class="btn btn-success w-75 mb-2" (click)="area()" >Find Area</button>
+      <button class="btn btn-primary w-75 mb-2" (click)="Circumference()" >Find Circumference</button>
+      <button class="btn btn-danger w-75" >Reset</button>
+    </div>
+
+    <!-- Results -->
+    <div class="mt-4 border rounded p-3 bg-white">
+      <p class="fw-semibold text-success" >{{result}}</p>
+      <p class="fw-semibold text-primary">{{result1}}</p>
+    </div>
+  </div>
+</div>

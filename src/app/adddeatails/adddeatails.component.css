@@ -1,0 +1,6 @@
+label{
+    width: 120px;
+}
+label::after{
+    content: ":";
+}

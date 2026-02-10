@@ -1,0 +1,36 @@
+  body {
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .calculator-card {
+      width: 380px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .calculator-card:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-primary {
+      background-color: #6a11cb;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #2575fc;
+    }
+
+    #result {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }

@@ -1,0 +1,191 @@
+<h1>Comapany deatils</h1>
+<form action="" [formGroup]="userForm" (ngSubmit)="submit()">
+    <label for="">name:</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+        <p class="error" *ngIf="userForm.get('name')?.hasError('required')">Name is required</p>
+        <p class="error" *ngIf="userForm.get('name')?.hasError('minlength')">minimum 3 chars required</p>
+        <p class="error" *ngIf="userForm.get('name')?.hasError('maxlength')">maxlength 20 chars allowed</p>
+        <p class="error" *ngIf="userForm.get('name')?.hasError('pattern')">capitalized</p>
+    </div>
+    <br>
+    <label for="">salary:</label>
+    <input type="number" formControlName="salary">
+    <div *ngIf="userForm.get('salary')?.touched && userForm.get('salary')?.invalid">
+        <p class="error" *ngIf="userForm.get('salary')?.hasError('required')">salary is required</p>
+        <p class="error" *ngIf="userForm.get('salary')?.hasError('min')">minimum 200000 years</p>
+        <p class="error" *ngIf="userForm.get('salary')?.hasError('max')">maximum 1000000 years</p>
+
+    </div>
+    <br>
+    <div formGroupName="company">
+        <label for="">name:</label>
+        <input type="text" formControlName="name">
+        <div *ngIf="userForm.get('company')?.get('name')?.touched && userForm.get('company')?.get('name')?.invalid">
+            <p class="error" *ngIf="userForm.get('company')?.get('name')?.hasError('required')">companyname is required
+            </p>
+            <p class="error" *ngIf="userForm.get('company')?.get('name')?.hasError('minlength')">min 3 charecters</p>
+            <p class="error" *ngIf="userForm.get('company')?.get('name')?.hasError('maxlength')">min 20 charecters</p>
+            <p class="error" *ngIf="userForm.get('company')?.get('name')?.hasError('pattern')">capitalized</p>
+        </div>
+        <br>
+        <label for="">industry:</label>
+        <input type="text" formControlName="industry">
+        <div *ngIf="userForm.get('company')?.get('industry')?.touched && userForm.get('company')?.get('name')?.invalid">
+            <p class="error" *ngIf="userForm.get('company')?.get('industry')?.hasError('required')">companyindustry is
+                required</p>
+            <p class="error" *ngIf="userForm.get('company')?.get('industry')?.hasError('minlength')">min 3 charecters
+            </p>
+            <p class="error" *ngIf="userForm.get('company')?.get('industry')?.hasError('maxlength')">min 20 charecters
+            </p>
+            <p class="error" *ngIf="userForm.get('company')?.get('industry')?.hasError('pattern')">capitalized</p>
+        </div>
+        <br>
+        <label for="">size:</label>
+        <input type="number" formControlName="size">
+        <div *ngIf="userForm.get('company')?.get('size')?.touched && userForm.get('company')?.get('size')?.invalid">
+            <p class="error" *ngIf="userForm.get('company')?.get('size')?.hasError('required')">companysize is required
+            </p>
+            <p class="error" *ngIf="userForm.get('company')?.get('size')?.hasError('minlength')">min 10 charecters</p>
+            <p class="error" *ngIf="userForm.get('company')?.get('size')?.hasError('maxlength')">min 1000 charecters</p>
+        </div>
+        <br>
+    </div>
+    <button type="button" (click)="addskills()">Skills</button>
+
+    <div formArrayName="skills">
+        <div *ngFor="let skills of skillsFormArray.controls; let i=index">
+            <div formGroupName="{{i}}">
+                <h5>skills {{i+1}}</h5>
+                <label for="">name:</label>
+                <input type="text" formControlName="name"> <br>
+                <div
+                    *ngIf="skillsFormArray.controls[i]?.get('name')?.touched && skillsFormArray.controls[i]?.get('name')?.invalid">
+                    <p class="error" *ngIf="skillsFormArray.controls[i]?.get('name')?.hasError('required')">name is
+                        required </p>
+                    <p class="error" *ngIf="skillsFormArray.controls[i]?.get('name')?.hasError('min')">min 3 digits
+                        isrequried</p>
+                    <p class="error" *ngIf="skillsFormArray.controls[i]?.get('name')?.hasError('max')">max 20 digits
+                        isrequried</p>
+                </div>
+                <label for="">Level:</label>
+                <input type="text" formControlName="level"> <br>
+                <div
+                    *ngIf="skillsFormArray.controls[i]?.get('level')?.touched && skillsFormArray.controls[i]?.get('level')?.invalid">
+                    <p class="error" *ngIf="skillsFormArray.controls[i]?.get('level')?.hasError('required')">level is
+                        required </p>
+                    <p class="error" *ngIf="skillsFormArray.controls[i]?.get('level')?.hasError('min')">advance
+                        isrequried</p>
+                    <p class="error" *ngIf="skillsFormArray.controls[i]?.get('level')?.hasError('max')">min skills
+                        isrequried</p>
+                </div>
+                <button (click)="remove(i)">delete</button>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+    <div formGroupName="location">
+        <label for="">city:</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="userForm.get('location')?.get('city')?.touched && userForm.get('location')?.get('city')?.invalid">
+            <p class="error" *ngIf="userForm.get('location')?.get('city')?.hasError('required')">locationcity is required</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('city')?.hasError('minlength')">min 3 charecters</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('city')?.hasError('maxlength')">min 20 charecters</p>
+        </div>
+        <br>
+        <label for="">state:</label>
+        <input type="text" formControlName="state">
+        <div *ngIf="userForm.get('location')?.get('state')?.touched && userForm.get('location')?.get('state')?.invalid">
+            <p class="error" *ngIf="userForm.get('location')?.get('state')?.hasError('required')">locationstate is required</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('state')?.hasError('minlength')">min 3 charecters</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('state')?.hasError('maxlength')">min 20 charecters</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('state')?.hasError('pattern')">capitalized</p>
+        </div>
+        <br>
+        <label for="">country:</label>
+        <input type="text" formControlName="country">
+        <div *ngIf="userForm.get('location')?.get('country')?.touched && userForm.get('location')?.get('country')?.invalid">
+            <p class="error" *ngIf="userForm.get('location')?.get('country')?.hasError('required')">locationcountry is required</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('country')?.hasError('minlength')">min 3 charecters</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('country')?.hasError('maxlength')">min 20 charecters</p>
+            <p class="error" *ngIf="userForm.get('location')?.get('country')?.hasError('pattern')">capitalized</p>
+        </div>
+        <br>
+    </div>
+    <label for="">work mode:</label>
+    <br>
+    <input type="radio" name="work" formControlName="workmode" value="WorkFormOffice">
+    <label for="">WorkFormOffice</label><br>
+    <input type="radio" name="work" formControlName="workmode" value="Hybrid">
+    <label for="">Hybrid</label><br>
+    <input type="radio" name="work" formControlName="workmode" value="Remote">
+    <label for="">Remote</label><br>
+
+
+    <button type="button" (click)="addhikes()">hikes</button>
+    <div formArrayName="hikes">
+        <div *ngFor="let hikes of hikesFormArray.controls; let i = index">
+            <div formGroupName="{{i}}">
+
+                <h4>hikes {{i+1}}</h4>
+
+                <label>Year:</label>
+                <input type="number" formControlName="year"><br>
+                <div
+                    *ngIf="hikesFormArray.controls[i]?.get('year')?.touched && hikesFormArray.controls[i]?.get('year')?.invalid">
+                    <p class="error" *ngIf="hikesFormArray.controls[i]?.get('year')?.hasError('required')">year is
+                        required </p>
+                    <p class="error" *ngIf="hikesFormArray.controls[i]?.get('year')?.hasError('minlength')">min 3 digits
+                        isrequried</p>
+                    <p class="error" *ngIf="hikesFormArray.controls[i]?.get('year')?.hasError('maxlength')">max 20 digits
+                        isrequried</p>
+                </div>
+
+                <label>Percentsalary:</label>
+                <input type="number" formControlName="Percentsalary"><br>
+                                <div
+                    *ngIf="hikesFormArray.controls[i]?.get('Percentsalary')?.touched && hikesFormArray.controls[i]?.get('Percentsalary')?.invalid">
+                    <p class="error" *ngIf="hikesFormArray.controls[i]?.get('Percentsalary')?.hasError('required')">Percentsalary is
+                        required </p>
+                    <p class="error" *ngIf="hikesFormArray.controls[i]?.get('Percentsalary')?.hasError('minlength')">min 3 digits
+                        isrequried</p>
+                    <p class="error" *ngIf="hikesFormArray.controls[i]?.get('Percentsalary')?.hasError('maxlength')">max 20 digits
+                        isrequried</p>
+                </div>
+                <button (click)="delete(i)">delete</button>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="">type</label>
+        <input type="radio" name="type" value="fulltime" formControlName="type">
+        <label for="">fulltime</label>
+        <input type="radio" name="type" value="contract" formControlName="type">
+        <label for="">contract</label>
+    </div>
+    <div *ngIf="userForm.get('type')?.value === 'fulltime'">
+        <label for="">health insurance amount:</label>
+        <input type="text" formControlName="healthinsuranceamount">
+        <div *ngIf="userForm.get('healthinsuranceamount')?.touched && userForm.get('healthinsuranceamount')?.invalid">
+            <p class="error" *ngIf="userForm.get('healthinsuranceamount')?.hasError('required')">healthinsuranceamount is required</p>
+            <p class="error" *ngIf="userForm.get('healthinsuranceamount')?.hasError('min')">minimum 100 rupees</p>
+        </div>
+        <br>
+    </div>
+    <div *ngIf="userForm.get('type')?.value === 'contract'">
+        <label for="">contract duration:</label>
+        <input type="text" formControlName="contractduration">
+        <div *ngIf="userForm.get('contractduration')?.touched && userForm.get('contractduration')?.invalid">
+            <p class="error" *ngIf="userForm.get('contractduration')?.hasError('required')">contractduration is required</p>
+            <p class="error" *ngIf="userForm.get('contractduration')?.hasError('min')">minimum 100 rupees</p>
+        </div>
+        <br>
+    </div>
+    <input type="submit">
+    <pre>
+        {{userForm.value|json}}
+    </pre>
+
+</form>

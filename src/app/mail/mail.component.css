@@ -1,0 +1,21 @@
+.visited{
+     font-weight: 100;
+  color: gray;
+  background-color: gainsboro;
+  width: 100%;
+
+}
+.not-visited{
+  background-color: white;
+  color: black;
+  font-size: 500;
+  width: 100%;
+ 
+}
+.parent{
+  display: flex;
+  
+}
+h3{
+  margin-left: 30px;
+}

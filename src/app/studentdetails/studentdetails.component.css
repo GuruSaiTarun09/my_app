@@ -1,0 +1,36 @@
+body {
+  background-color: #f5f6fa;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  background-color: #e9ecef;
+}
+
+.btn-group button {
+  flex: 1;
+  font-weight: 500;
+}
+
+.container h2 {
+  font-weight: 700;
+}

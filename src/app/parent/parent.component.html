@@ -1,0 +1,18 @@
+<p>parent works!</p>
+<input type="text" [(ngModel)]="count">
+
+<h1>hello</h1>
+<app-child [count]="count" (countChange)="updateCount($event)"></app-child>
+
+<!-- <button [disabled]="false" (click)="submit()">submmit</button> -->
+
+<!-- <app-textrea [max]="30" (valueChange)=""></app-textrea> -->
+
+<!-- <app-textarea [max]="30" (valueChange)="saveValue()"><p>Enter Paragraph</p></app-textarea> -->
+ 
+
+<app-textarea [max]="30"><p>Enter Paragraph</p></app-textarea>
+
+<app-highlight [color]="'red'">
+    <h1>Create User</h1>
+</app-highlight>

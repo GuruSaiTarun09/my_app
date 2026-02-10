@@ -1,0 +1,150 @@
+<p>directives works!</p>
+<!-- pipes -->
+<h1>{{state|uppercase}}</h1>
+<h1>{{city|lowercase}}</h1>
+<h6>{{now}}</h6>
+<h6>{{now|date}}</h6>
+<h6>{{now| date:'yyyy-MM-dd'}}</h6>
+<h6>{{now| date:'dd/MM/yy hh:mm:ss'}}</h6>
+
+
+
+
+<!-- if condition -->
+    <h1 *ngIf="age>=18">Major</h1>
+    <h1 *ngIf="age<18">Minor</h1>
+
+ 
+<!-- for loop -->
+<p *ngFor="let name of names">my name is {{name}}.</p>
+
+<ol>
+    <li *ngFor="let name of names">{{name}}</li>
+</ol>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th>name</th>
+        <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of Products">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+        <th>name</th>
+        <th>subject</th>
+        <th>marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of details">
+            <td>{{detail.name}}</td>
+            <td>{{detail.subject}}</td>
+            <td>{{detail.marks}}</td>
+        </tr>
+    </tbody>
+</table>
+<select name="" id="">
+    <option *ngFor="let country of countrys">{{country}}</option>
+</select>
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.NO</th>
+        <th>name</th>
+        <th>subject</th>
+        <th>marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of details; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{detail.name}}</td>
+            <td>{{detail.subject}}</td>
+            <!-- inline css -->
+            <!-- <td [ngClass]="{'color':detail.marks<50 ? 'green': 'red'}">{{detail.marks}}</td> -->
+            <td [ngClass]="{'t-red':detail.marks<50,'t-green':detail.marks>=50}">{{detail.marks}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Maiden Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Birth Date</th>
+      <th>image</th>
+      <th>bloodGroup</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>eyeColor</th>
+      <th>hair:color&type</th>
+      <th>ip</th>
+      <th>address:latituse&langitude</th>
+      <th>macAddress</th>
+      <th>university</th>
+      <th>Bank details</th>
+      <th>Comapany</th>
+      <th>ein</th>
+      <th>ssn</th>
+      <th>userAgent</th>
+      <th>crypto</th>
+      <th>role</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let studentdetail of studentdetails">
+      <td>{{ studentdetail.id }}</td>
+      <td>{{ studentdetail.firstName }}</td>
+      <td>{{ studentdetail.lastName }}</td>
+      <td>{{ studentdetail.maidenName }}</td>
+      <td>{{ studentdetail.age }}</td>
+      <td>{{ studentdetail.gender }}</td>
+      <td>{{ studentdetail.email }}</td>
+      <td>{{ studentdetail.phone }}</td>
+      <td>{{ studentdetail.username }}</td>
+      <td>{{ studentdetail.password }}</td>
+      <td>{{ studentdetail.birthDate }}</td>
+      <td>
+        <img src="{{studentdetail.image}}" alt="">
+      </td>
+      <td>{{ studentdetail.bloodGroup}}</td>
+      <td>{{ studentdetail.height}}</td>
+      <td>{{ studentdetail.weight}}</td>
+      <td>{{studentdetail.eyeColor}}</td>
+      <td>{{studentdetail.hair.color}},{{studentdetail.hair.type}}</td>
+      <td>{{studentdetail.ip}}</td>
+      <td>{{studentdetail.address.address}},{{studentdetail.address.city}},{{studentdetail.address.state}},{{studentdetail.address.stateCode}},{{studentdetail.address.postalCode}},{{studentdetail.address.coordinates.lat}},{{studentdetail.address.coordinates.lng}},{{studentdetail.address.country}}</td>
+      <td>{{studentdetail.macAddress}}</td>
+      <td>{{studentdetail.university}}</td>
+      <td><strong>cardExpire</strong>{{studentdetail.bank.cardExpire}},<strong>cardNumber</strong>{{studentdetail.bank.cardNumber}},<strong>cardType</strong>,{{studentdetail.bank.cardType}},<strong>currency</strong>{{studentdetail.bank.currency}},<strong>iban</strong>{{studentdetail.bank.iban}}</td>
+      <td>{{studentdetail.company.department}},{{studentdetail.company.name}},{{studentdetail.company.title}},{{studentdetail.company.address.address}},{{studentdetail.company.address.city}},{{studentdetail.company.address.state}},{{studentdetail.company.address.stateCode}},{{studentdetail.company.address.postalCode}},{{studentdetail.company.address.coordinates.lat}},{{studentdetail.company.address.coordinates.lng}},{{studentdetail.company.address.country}}</td>
+      <td>{{studentdetail.ein}}</td>
+      <td>{{studentdetail.ssn}}</td>
+      <td>{{studentdetail.userAgent}}</td>
+      <td>{{studentdetail.crypto.coin}},{{studentdetail.crypto.wallet}},{{studentdetail.crypto.network}}</td>
+      <td>{{studentdetail.role}}</td>
+    </tr>
+  </tbody>
+</table>
+
+

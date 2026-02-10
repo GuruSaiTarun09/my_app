@@ -1,0 +1,17 @@
+<h1 class="logo">F A C E B O O K</h1>
+
+<div class="parent">
+    <form [formGroup]="loginForm" (ngSubmit)="login()"> 
+
+        <h1>LOGIN</h1>
+
+        <label>Email:</label><br>
+        <input type="text" placeholder="Please Enter your email" formControlName="username"><br>
+
+        <label>Password:</label><br>
+        <input type="password" placeholder="Enter your password" formControlName="password"><br><br>
+
+        <button type="submit">Login</button>
+        <p>Forgot Password?</p>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    
+}
+
+.logo {
+    margin-top: 40px;
+    color: #1877f2;
+    letter-spacing: 5px;
+    font-size: 40px;
+}
+
+.parent {
+    margin-top: 20px;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.parent form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.parent input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #1877f2;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #165fbe;
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+    color: #1877f2;
+    cursor: pointer;
+}

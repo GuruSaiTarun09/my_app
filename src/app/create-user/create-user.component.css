@@ -1,0 +1,72 @@
+form {
+    width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: block;
+}
+
+input[type="text"], input[type="radio"] {
+    margin-bottom: 12px;
+    padding: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+}
+
+button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h5 {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+div[formGroupName], .card {
+    background: #ffffff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+input[type="submit"] {
+    padding: 8px 15px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background: #0a7a0a;
+}
+p{
+    color: red;
+}

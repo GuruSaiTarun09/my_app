@@ -1,0 +1,93 @@
+/* Main form container */
+form {
+  width: 600px;
+  margin: 20px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Section titles */
+h4, h5 {
+  margin-top: 20px;
+  color: #333;
+}
+
+/* Each row with label + input */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Buttons */
+button {
+  padding: 8px 14px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Radio buttons container */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.radio-group label {
+  font-weight: normal;
+}
+
+/* Skills & Hikes boxes */
+.skill-box,
+.hike-box {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-top: 15px;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+/* Submit aligned center */
+input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  background: green;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: darkgreen;
+}
+p{
+    color: red;
+}

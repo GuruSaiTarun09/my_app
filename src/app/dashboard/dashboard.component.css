@@ -1,0 +1,16 @@
+.left{
+    background-color:aqua;
+    width: 20%;
+    height: 200vh;
+}
+.right{
+    background-color: white;
+    width:  80%;
+    height: 100%;
+}
+.home{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: blueviolet;
+}
